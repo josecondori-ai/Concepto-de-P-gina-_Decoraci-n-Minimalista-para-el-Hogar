@@ -1,0 +1,165 @@
+/* Importación de fuentes desde Google Fonts */
+@import url('https://fonts.googleapis.com/css?family=Nanum+Gothic+Coding:400,700|Playfair+Display:400,700,900|Raleway:400,500,600,700');
+
+/* Establecer el box-sizing a todas las etiquetas para un mejor manejo de los márgenes y rellenos */
+*, *:before, *:after {
+    box-sizing: border-box;
+    position: relative; /* Asegura que los elementos antes y después se posicionen correctamente */
+}
+
+/* Las imágenes se muestran como bloques, eliminando el espacio extra alrededor */
+img {
+    display: block;
+}
+
+/* Estilo específico para el texto en coreano, usando una fuente monoespaciada */
+span.korean {
+    font-family: 'Nanum Gothic Coding', monospace;
+}
+
+/* Estilo global para html y body para evitar scroll horizontal y asegurar el uso completo del ancho */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    width: 100%;
+    height: auto;
+    font-family: 'Raleway', sans-serif; /* Fuente principal para todo el documento */
+}
+
+/* Clase para un contenedor genérico que cubre todo el ancho */
+.wrapper {
+    width: 100%;
+    height: auto;
+}
+
+/* Estilos para la barra de navegación fija */
+.nav {
+    padding: 0 60px; /* Espaciado interno para crear margen entre el contenido y los bordes */
+    width: 100%;
+    height: 100px;
+    left: 0;
+    top: 0;
+    position: fixed;
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+    z-index: 5; /* Asegura que la barra esté por encima de otros elementos */
+    transition: .5s ease; /* Transición suave para cambios de estado */
+}
+
+/* Cuando la navegación está activa, cambia su altura y fondo */
+.nav--active {
+    height: 60px;
+    background-color: rgba(255, 255, 255, .7); /* Fondo semi-transparente */
+    transition: .5s ease;
+}
+
+/* Estilo del logo de la navegación */
+.nav__logo {
+    color: #231F20;
+    font-weight: 900; /* Negrita fuerte para destacar el logo */
+}
+
+/* Wrapper para agrupar elementos dentro de la navegación */
+.nav__wrapper {
+    padding-left: 45px;
+    display: flex; /* Alinea horizontalmente los elementos */
+}
+
+/* Estilos para los ítems de navegación */
+.nav__item {
+    padding: 15px 20px; /* Espaciado para un mejor toque y área de clic */
+    overflow: hidden;
+    color: transparent; /* Texto invisible para usar los pseudos elementos */
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer; /* Cursor de mano para indicar interactividad */
+    position: relative;
+}
+
+/* Estilo antes de cada ítem de navegación */
+.nav__item:before {
+    content: attr(data-title); /* Usa el atributo data-title como contenido */
+    left: 20px;
+    top: 15px;
+    position: absolute;
+    color: #231F20; /* Color negro para el texto principal */
+    transition: .4s ease;
+}
+
+/* Estilo después de cada ítem de navegación */
+.nav__item:after {
+    content: attr(data-title); /* Usa el atributo data-title también */
+    left: 20px;
+    top: 15px;
+    position: absolute;
+    color: #333ddd; /* Color azul oscuro para el efecto de desplazamiento */
+    transform: translateY(40px); /* Inicialmente, mueve el texto fuera de la vista */
+    transition: .4s ease;
+}
+
+/* Efecto hover en el ítem de navegación */
+.nav__item:hover:before {
+    transform: translateY(-40px); /* Mueve el texto hacia arriba cuando se pasa el mouse */
+}
+
+.nav__item:hover:after {
+    transform: translateY(0%); /* Desplaza el texto secundario a su posición original */
+}
+
+/* Color de fondo y de texto al seleccionar un salto de línea */
+br::selection {
+    background-color: #fff;
+    color: pink;
+}
+
+/* Estilos del header, con un alto completo de la pantalla */
+.header {
+    padding: 0px 30px;
+    width: 100%;
+    height: 100vh; /* Ocupa el 100% de la altura de la ventana */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra vertical y horizontalmente el contenido */
+    transform: translateX(-15vw); /* Desplazamiento para crear un efecto visual */
+    z-index: 2;
+}
+
+/* Estilo para el tipo de cabecera */
+.header-type {
+    color: #231F20; /* Color negro */
+    font-family: 'Playfair Display', serif; /* Fuente decorativa */
+    font-size: 72px; /* Tamaño grande para titulares */
+    font-weight: 300; /* Peso de fuente ligero para elegancia */
+    line-height: 1.3;
+    letter-spacing: 1.3px;
+}
+
+/* Selección de texto en la cabecera */
+.header-type::selection {
+    background-color: #fff;
+    color: pink; /* Cambia el color al seleccionar texto en la cabecera */
+}
+
+/* Contenido principal con un alto considerable para simular scroll */
+main {
+    width: 100%;
+    height: 8000px; /* Altura grande para pruebas o maquetación larga */
+}
+
+/* Estilos para una imagen en la cuadrícula */
+.grid-img {
+    width: 55%;
+    height: 100vh;
+    left: 45%;
+    top: 0;
+    position: fixed;
+}
+
+/* Asegura que las imágenes en la cuadrícula se ajusten bien */
+.grid-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ajusta la imagen sin distorsionar */
+}
